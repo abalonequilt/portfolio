@@ -97,10 +97,10 @@ export default class WaveManager{
             let npcColor = this.pickFreeRandomNPCColor();
             this.potential_colors.set(npcColor, 1)
             let vector = shuffledSpawns[i][1]
-            let enemy = new Enemy(this.scene, vector.x, vector.y, npcColor + 'dude');
+            let enemy = new Enemy(this.scene, vector.x, vector.y, npcColor + 'dude', this.grid);
             enemy.setInteractive()
             enemy.on('pointerdown', () => {
-                enemy.selectSprite(this.player.targetCharacters.has(enemy.name) || this.player.pursuerCharacters.has(enemy.name));
+                enemy.selectSprite(this.player.targetCharacters.has(enemy.name) || this.player.chaseCharacters.has(enemy.name));
             });
             //rotates the sprite with a 90 degree offset to face center of circle
             //enemy.setRotation(angle - Phaser.Math.DegToRad(90));

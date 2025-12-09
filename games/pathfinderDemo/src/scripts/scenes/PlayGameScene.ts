@@ -6,6 +6,7 @@ import WaveManager from '../objects/WaveManager'
 import MapGenerator from '../objects/MapGenerator'
 import NPCManager from '../objects/NPCManager'
 import GameManager from '../objects/GameManager';
+import { Mrpas } from 'mrpas';
 import { Globals } from "../helpers";
 import NPCOne from '../objects/characters/NPCOne';
 
@@ -27,6 +28,7 @@ export default class PlayGameScene extends Phaser.Scene {
     fiveSecondTimer : Phaser.Time.TimerEvent
     wasd
 
+    private fov?: Mrpas
     private map?: Phaser.Tilemaps.Tilemap
     private groundLayer?: Phaser.Tilemaps.TilemapLayer
 
@@ -226,13 +228,13 @@ export default class PlayGameScene extends Phaser.Scene {
 
         //needs Respawn
         //leave game maanger down here, waveManager.sprites dictionary was empty for some reason
-        this.gameManager = new GameManager(this.waveManager, this.npcManager, this.player, this.mapGenerator.grid)
+        this.gameManager = new GameManager(this.waveManager, this.player, this.mapGenerator.grid)
 
         Globals.eventsCenter.on('character-needs-respawn',(characterName) => {
             this.gameManager.addRespawnQueue(characterName)
         });
-        Globals.eventsCenter.on('character-needs-pursuer',(characterName) => {
-            this.gameManager.addPursuerQueue(characterName)
+        Globals.eventsCenter.on('character-needs-chaser',(characterName) => {
+            this.gameManager.addChaserQueue(characterName)
         });
         Globals.eventsCenter.on('character-needs-target',(characterName) => {
             this.gameManager.addTargetQueue(characterName)
@@ -240,10 +242,6 @@ export default class PlayGameScene extends Phaser.Scene {
 
         Globals.eventsCenter.on('add-score-for-character',(characterName, addedScore) => {
             this.gameManager.addScoreForCharacter(characterName, addedScore)
-        });
-
-        Globals.eventsCenter.on('request-pathfindingXY-for-character',(characterName, start, target) => {
-            this.gameManager.pathfindingXYRequested(characterName, start, target)
         });
 
         Globals.eventsCenter.on('UI-ready-to-receive',() => {
@@ -285,7 +283,7 @@ export default class PlayGameScene extends Phaser.Scene {
         this.player.sceneReady()
         //this.gameManager.sceneReady()
         //UI scene might not be loaded yet so finding target would override the target icon ui
-        //this.gameManager.setPursuerAndTargets()
+        //this.gameManager.setChaserAndTargets()
     }
 
     UIsceneReadyToReceive(){
@@ -340,7 +338,7 @@ export default class PlayGameScene extends Phaser.Scene {
         //TODO maybe store Nearby as a dictionary in constructor to save on memory allocation
         let nearby = new Array<NPCOne>
         for(let enemy of this.waveManager.enemiesSpriteDictionary.values()){
-            if(Globals.uiTargetCharacters.has(enemy.name) || Globals.uiPursuerCharacters.has(enemy.name)){
+            if(Globals.uiTargetCharacters.has(enemy.name) || Globals.uiChaseCharacters.has(enemy.name)){
                 let enemyPos = new Phaser.Math.Vector2(enemy.x, enemy.y);
                 if(Phaser.Math.Distance.BetweenPoints(playerPos, enemyPos) <= radius){
                     //console.log("2) this enemy within radius is : " + enemy.name)

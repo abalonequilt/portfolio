@@ -6,8 +6,8 @@ import { Globals } from "../../helpers";
 
 export default class Enemy extends NPCOne {
 
-  constructor(scene : Phaser.Scene, x : number, y : number, texture : string) {
-    super(scene, x, y, texture)
+  constructor(scene : Phaser.Scene, x : number, y : number, texture : string, grid : Grid) {
+    super(scene, x, y, texture, grid)
     this.npcActive = true
     this.activePlayer = true
     this.pathingAllowed = true
@@ -15,11 +15,15 @@ export default class Enemy extends NPCOne {
     
   } 
   override sceneReady(){
-    Globals.eventsCenter.emit('character-needs-pursuer', this.name)
+    Globals.eventsCenter.emit('character-needs-chaser', this.name)
     Globals.eventsCenter.emit('character-needs-target', this.name)
   }
 
   override update(): void{
+
+    //TODO need deltatime between updates Phaser.Core.TimeStep
+    this.kinematic.position = new Phaser.Math.Vector2(this.x, this.y)
+    this.kinematic.orientation = this.rotation
 
     if(this.isStunned){
       this.setVelocity(0, 0); // stop moving
@@ -43,9 +47,7 @@ export default class Enemy extends NPCOne {
         
      }
     }
-    //TODO need deltatime between updates Phaser.Core.TimeStep
-    this.kinematic.position = new Phaser.Math.Vector2(this.x, this.y)
-    this.kinematic.orientation = this.rotation
+
     //console.log('update')
   }
 
@@ -74,9 +76,8 @@ export default class Enemy extends NPCOne {
             console.log("this current enemy is : " + this.name + ", color is: " + this.characterColor)
           }
           //doing this to pause execution
-          //console.log("emithing pathfinding event")
-          Globals.eventsCenter.emit('request-pathfindingXY-for-character', this.name, this.kinematic.position, targetPosition)
-          
+          this.setPath(targetPosition)
+          console.log("path")
         }
         else{
              

@@ -1,22 +1,23 @@
 import Goal from './Goal'
-import Targeter from './interfaces/Targeter'
+import Targeter from './Targeter'
 import Kinematic from '../Kinematic'
 //page 142
-export default class ChaseTargeter implements Targeter{
-    //holds a kinematic data structur for the pursuer
-    chasedCharacterKinematic : Kinematic;
+export default class ChaseTargeter extends Targeter{
+    //holds a kinematic data structur for the chase
+    chasedCharacter : Kinematic;
+
+
     //controls how much to anticipate the mvement
-    lookahead : number; //in seconds
+    lookahead : number;
     
-    constructor(chasedCharacterKinematic){
-        this.lookahead = 2 //seconds
-        this.chasedCharacterKinematic = chasedCharacterKinematic
+    constructor(){
+        super()
     }
 
-    getGoal(kinematic) : Goal{
+    override getGoal(kinematic) : Goal{
         let goal = new Goal()
-        goal.position.x = this.chasedCharacterKinematic.position.x + this.chasedCharacterKinematic.velocity.x * this.lookahead
-        goal.position.y = this.chasedCharacterKinematic.position.y + this.chasedCharacterKinematic.velocity.y * this.lookahead
+        goal.position.x = this.chasedCharacter.position.x + this.chasedCharacter.velocity.x * this.lookahead
+        goal.position.y = this.chasedCharacter.position.y + this.chasedCharacter.velocity.y * this.lookahead
         goal.hasPosition = true
         return goal
     }

@@ -1,6 +1,6 @@
-import Constraint from './interfaces/Constraint'
+import Constraint from './Constraint'
 /*
-export default class AvoidObstacleConstraint implements Constraint{
+export default class AvoidObstacleConstraint extends Constraint{
     //hods the obstacle bounding sphere
     center : Phaser.Math.Vector2
     radius : number

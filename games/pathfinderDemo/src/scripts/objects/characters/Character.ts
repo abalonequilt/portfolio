@@ -16,17 +16,10 @@ export default class Character extends Phaser.Physics.Arcade.Sprite {
     activePlayer : boolean
 
     targetCharacters : Map<string, Character>
-    pursuerCharacters : Map<string, Character>
+    chaseCharacters : Map<string, Character>
     randomTargetKey : string
 
     name : string
-
-    finalTarget : Phaser.Math.Vector2 | null
-    pathTarget : Phaser.Math.Vector2 | null
-    pathingAllowed : boolean
-    path : Array<Phaser.Math.Vector2>
-    //pathCalled : boolean
-    pathIterator : number
 
     isStunned : boolean
     isPoisoned : boolean
@@ -57,18 +50,10 @@ export default class Character extends Phaser.Physics.Arcade.Sprite {
         this.activePlayer = false
   
         this.targetCharacters = new Map
-        this.pursuerCharacters = new Map
+        this.chaseCharacters = new Map
 
         this.characterSpeed = 100
         this.characterColor = texture.split("dude")[0]
-
-        
-        this.finalTarget = this.getRandomTarget()
-        this.pathTarget = null
-        this.path = new Array<Phaser.Math.Vector2>
-        //this.pathCalled = false
-        this.pathIterator = 0
-        this.pathingAllowed = false
 
         this.isStunned = false
         this.isPoisoned = false
@@ -77,18 +62,6 @@ export default class Character extends Phaser.Physics.Arcade.Sprite {
     sceneReady(){
         
     }
-    setPath(path : Array<Phaser.Math.Vector2>){
-        //this.path = this.pathfinder.getPathXY(this.kinematic.position, target) //TODO uncomment when events is not used
-        this.path = path
-        //TODO need to make path with 45 angle entrances
-        this.pathIterator = 0
-        console.log("set path")
-    }
-
-     getRandomTarget(){
-        return new Phaser.Math.Vector2(Math.random() * this.BOUNDS_WIDTH, Math.random() * this.BOUNDS_HEIGHT)
-    }
-
     despawnCharacter(){
 
         this.needsRespawning = true
@@ -103,23 +76,23 @@ export default class Character extends Phaser.Physics.Arcade.Sprite {
         if(this.activePlayer){
             for(let targetChar of this.targetCharacters.values()){
                 //each of this characters targets no longer have it chasing it
-                targetChar.pursuerCharacters.delete(this.name)
-                if(targetChar.pursuerCharacters.size <= 0){
-                    Globals.eventsCenter.emit('character-needs-pursuer', targetChar.name)
+                targetChar.chaseCharacters.delete(this.name)
+                if(targetChar.chaseCharacters.size <= 0){
+                    Globals.eventsCenter.emit('character-needs-chaser', targetChar.name)
                 }
                 
             }
-            for(let pursuerChar of this.pursuerCharacters.values()){
-                pursuerChar.targetCharacters.delete(this.name)
+            for(let chaserChar of this.chaseCharacters.values()){
+                chaserChar.targetCharacters.delete(this.name)
                 //hopefully this takes care of getting your target poached and having to get another randomtargetkey
-                pursuerChar.randomTargetKey = ''
-                if(pursuerChar.pursuerCharacters.size <= 0){
-                    Globals.eventsCenter.emit('character-needs-target', pursuerChar.name)
+                chaserChar.randomTargetKey = ''
+                if(chaserChar.chaseCharacters.size <= 0){
+                    Globals.eventsCenter.emit('character-needs-target', chaserChar.name)
                 }
                 
             }
             this.targetCharacters.clear()
-            this.pursuerCharacters.clear()
+            this.chaseCharacters.clear()
             //TODO need to set to-1 when killing targets or losing them to someone else as well
             this.randomTargetKey = ''
             if(this.name == "player"){
@@ -144,7 +117,7 @@ export default class Character extends Phaser.Physics.Arcade.Sprite {
         this.enableBody(true,x,y,true,true)
         this.needsRespawning = false
         if(this.activePlayer){
-            Globals.eventsCenter.emit('character-needs-pursuer', this.name)
+            Globals.eventsCenter.emit('character-needs-chaser', this.name)
             Globals.eventsCenter.emit('character-needs-target', this.name)
         }
 
@@ -171,11 +144,11 @@ export default class Character extends Phaser.Physics.Arcade.Sprite {
         const randomIndex = Math.floor(Math.random() * this.targetCharacters.size);
         return keys[randomIndex]
     }
-    setPursuerCharacter(pursuer : Character){
+    setChaseCharacter(chaser : Character){
 
-        this.pursuerCharacters.set(pursuer.name, pursuer)
+        this.chaseCharacters.set(chaser.name, chaser)
         if(this.name == "player"){
-            Globals.uiPursuerCharacters = this.pursuerCharacters
+            Globals.uiChaseCharacters = this.chaseCharacters
         }
     }
 
@@ -258,7 +231,7 @@ export default class Character extends Phaser.Physics.Arcade.Sprite {
                 //killed a target character
                 this.killThisCharacter(actionableCharacter)
                 //delete character from target characters and check if needs target
-                //this.targetCharacters.delete(actionableCharacter.name) //already taken care of in the despawn for loop checking pursuers
+                //this.targetCharacters.delete(actionableCharacter.name) //already taken care of in the despawn for loop checking chasers
                 if(this.targetCharacters.size <= 0){
                     if(this.name == "player"){
                         Globals.eventsCenter.emit('UI-set-targetIcon', 'unknown_target')
@@ -267,18 +240,18 @@ export default class Character extends Phaser.Physics.Arcade.Sprite {
                 }
                 
             }
-            else if(this.pursuerCharacters.has(actionableCharacter.name)){
+            else if(this.chaseCharacters.has(actionableCharacter.name)){
                 //not already stunned, can't just keep stunning for points when already stunned
                 if(!actionableCharacter.isStunned){
-                    //this is a valid block to a pursuer
+                    //this is a valid block to a chaser
                     //add 200 to score for block
                     console.log("blocked character: " + actionableCharacter.name)
-                    //remove this pursuer character from the pursuer character Map
-                    this.pursuerCharacters.delete(actionableCharacter.name)
+                    //remove this chase character from the chase character Map
+                    this.chaseCharacters.delete(actionableCharacter.name)
                    
-                    //if this player has zero pursuers, add to needs pursuer queue
-                    if(this.pursuerCharacters.size <= 0){
-                        Globals.eventsCenter.emit('character-needs-pursuer', this.name)
+                    //if this player has zero chasers, add to needs chaser queue
+                    if(this.chaseCharacters.size <= 0){
+                        Globals.eventsCenter.emit('character-needs-chaser', this.name)
                     }
                     actionableCharacter.getStunned(8000, this.name) //TODO!!! some sort of timer check to see how close if other character also tried to kill within a timeframe
                     Globals.eventsCenter.emit('add-score-for-character', this.name, 200)
@@ -286,7 +259,7 @@ export default class Character extends Phaser.Physics.Arcade.Sprite {
 
             }
             else{
-                //this hit an npc that isn't in targeters or pursuers, despawn this npc with no points
+                //this hit an npc that isn't in targeters or chasers, despawn this npc with no points
                 //check if enemy or npc, 
                 if(actionableCharacter.activePlayer){
                     //if enemy do nothing (Ui probably shouldn't even be visible for them)
@@ -297,9 +270,9 @@ export default class Character extends Phaser.Physics.Arcade.Sprite {
                     //lose your target if you kill an npc and only have one target
                     if(this.targetCharacters.size <= 1){
                         for(let targetChar of this.targetCharacters.values()){
-                            //remove the one element from pursuer characters of the target
-                            targetChar.pursuerCharacters.delete(this.name)
-                            Globals.eventsCenter.emit('character-needs-pursuer', targetChar.name)
+                            //remove the one element from chase characters of the target
+                            targetChar.chaseCharacters.delete(this.name)
+                            Globals.eventsCenter.emit('character-needs-chaser', targetChar.name)
                         }
                         this.targetCharacters.clear()
                     }

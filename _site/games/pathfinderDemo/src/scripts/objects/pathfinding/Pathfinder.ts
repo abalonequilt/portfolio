@@ -9,8 +9,8 @@ export default class Pathfinder{
 
     graph: Grid;
 
-    constructor(graph){
-        this.graph = graph;
+    constructor(grid){
+        this.graph = grid;
     }
     //page 245
     
@@ -207,6 +207,123 @@ export default class Pathfinder{
         
     }
 
+    
+    /*
+    astar(start : Cell, goal: Cell) {
+        let openList = new PathfindingPriorityHeap()
+        let closedList = new PathfindingPriorityHeap()
+        let startRecord = new NodeRecord(start.row, start.column);
+        let startRecordCopy = new NodeRecord(start.row, start.column);
+        startRecord.estimatedTotalCost = 0
+        startRecord.costSoFar = 0
+        startRecord.connection = new Connection(0, startRecordCopy, startRecordCopy)
+
+        openList.addElement(startRecord)
+
+        let current = startRecord
+        console.log("right before while loop")
+        while(openList.heap.length > 0){
+            current = openList.smallestElement()
+
+            if(current.row == goal.row && current.column == goal.column){
+                break
+            }
+            let connections = this.graph.getConnections(current.row, current.column)
+            console.log("right before connections for loop")
+            for(let connection of connections){
+                let newCost = current.costSoFar + connection.getCost()
+                let endNode = connection.getToNode()
+                let endNodeHeuristic = this.heuristic(goal.row, endNode.row, goal.column, endNode.column)
+            
+                if(openList.contains(endNode)){
+                    let endNodeRecord = openList.findElementReturn(endNode)
+                    if(endNodeRecord != null){
+                        if(endNodeRecord.costSoFar <= newCost){
+                            continue
+                        }
+                        else{
+                            //endNodeHeuristic = endNodeHeuristic + newCost - endNodeRecord.costSoFar
+                            openList.removeElement(endNodeRecord)
+                            //we're gonna add below
+                        }
+                    }
+                }
+                if(closedList.contains(endNode)){
+                    let endNodeRecord = closedList.findElementReturn(endNode)
+                    if(endNodeRecord != null){
+                        if(endNodeRecord.costSoFar <= newCost){
+                            //openList.removeElement(endNodeRecord)
+                            continue
+                            //we're gonna add below
+                        }
+                        else{
+                            //endNodeHeuristic = endNodeHeuristic + newCost - endNodeRecord.costSoFar
+                            closedList.removeElement(endNodeRecord)
+
+                        }
+                    }
+                }
+                
+                endNode.costSoFar = newCost
+                endNode.estimatedTotalCost = newCost + endNodeHeuristic
+                endNode.connection = connection
+                if(!openList.contains(endNode)){
+                    openList.addElement(endNode)
+                }
+                
+                
+                console.log("one iteration of for loop")
+
+            }
+            openList.removeElement(current)
+            closedList.addElement(current)
+            
+        }
+        //broken out of while loop
+        let path = new Array<NodeRecord>
+        //we're here if we've either found the goal, or if we've no more nodes to search, find which
+        if(current.row != goal.row || current.column != goal.column){
+            //we've run out of nodes without finding the goal, so there's no solution
+            console.log("no path found")
+            return path
+        }
+        else{
+            //compile the list of connections in the path
+
+            //work back alogn the path, accumulating connections
+            //let pathIterator = 0
+            //console.log("current row : " + current.row + " current col : " + current.column)
+            while(true){
+                path.push(current)
+                if(current.row == start.row && current.column == start.column){
+                    break
+                }
+                console.log("in loop current row : " + current.row + " current col : " + current.column)
+                if(current.connection != null){
+                    
+                    current = current.connection.getFromNode()
+                    if(openList.contains(current)){
+                        
+                        let currentNode = openList.findElementReturn(current)
+                        if(currentNode != null){
+                            console.log("closed contains current")
+                            current = currentNode
+                        }
+                        
+                    }
+                }
+                else{
+                    console.log("current. connection is undefined")
+                    break
+                }
+            }
+            return this.reverse(path)
+            //console.l("looping")
+        }
+        
+    }
+    */
+
     reverse(path){
         let reversePath = new Array(path.length)
         for(let i = 0; i < path.length; i++){
@@ -219,147 +336,6 @@ export default class Pathfinder{
         return Math.abs(r1 - r2) + Math.abs(c1 - c2);
     }
 
-    getPathNodeRecords(start : Phaser.Math.Vector2, target : Phaser.Math.Vector2) : Array<NodeRecord>{
-        let toCell, fromCell
-        //console.log("player " + this.kinematic.position)
-        //console.log("target " + target)
-
-        fromCell = this.graph.getCellWithXY(start)
-        toCell = this.graph.getCellWithXY(target)
-        //console.log("from cell : " + fromCell.row + ", " + fromCell.col)
-        let path = this.astar(fromCell, toCell)
-        return path
-    }
-
-    getPathXY(start : Phaser.Math.Vector2, target : Phaser.Math.Vector2): Array<Phaser.Math.Vector2>{
-        let path = new Array<Phaser.Math.Vector2>
-        //console.log("start : " + start.x + ',' + start.y)
-        let nodeRecordPath = this.getPathNodeRecords(start, target)
-        if(nodeRecordPath != null){
-            for(let node of nodeRecordPath){
-                let row = node.row
-                let col = node.column
-                let tileCenter = this.graph.calculateTileCenter(row,col)
-                path.push(tileCenter)
-            }
-        }
-
-        //replace last element with this.target instead of using the tile center
-        
-        if(path.length > 0){
-            //TODO
-            path[0] = start
-            if(path.length > 1){
-                //this gets erased if the length is 1
-                path[path.length-1] = target
-            }
-        }
-        //ignore the first element anyways
-        //return this path but in 45 degree turns
-    
-        //let newPath = path
-        let chebyshevPath = this.shortest45Path(path)
-        return chebyshevPath
-        //return path //RETARD chebyshevPath
-    }
-
-    sign(n) { 
-        return n === 0 ? 0 : (n > 0 ? 1 : -1); 
-    }
-
-    // Return minimal 45° path points between two endpoints (includes end, per-step)
-    shortest45SegmentPoints(a : Phaser.Math.Vector2, b : Phaser.Math.Vector2) {
-        let [x, y, tx, ty] = [a.x, a.y, b.x, b.y];
-        let dx = tx - x, dy = ty - y;
-        const steps = Math.max(Math.abs(dx), Math.abs(dy));
-        const path = [new Phaser.Math.Vector2(x,y)];
-        for (let i = 0; i < steps; i++) {
-            dx = tx - x; dy = ty - y;
-            const sx = this.sign(dx);
-            const sy =this.sign(dy);
-            // if both non-zero, this is a diagonal; otherwise a straight 45° axis step
-            if (dx != 0 && dy != 0) {
-            x += sx; y += sy;        // diagonal
-            } 
-            else if (dx != 0) {
-            x += sx;                 // straight horizontal
-            } 
-            else if (dy != 0) {
-            y += sy;                 // straight vertical
-            }
-            path.push(new Phaser.Math.Vector2(x,y));
-        }
-
-
-        return path;
-    }
-
-    shortest45SegmentMinimal(a : Phaser.Math.Vector2, b : Phaser.Math.Vector2) {
-        const [x1, y1, x2, y2] = [a.x, a.y, b.x, b.y];
-    
-        const dx = x2 - x1;
-        const dy = y2 - y1;
-
-        const sx = this.sign(dx);
-        const sy = this.sign(dy);
-
-        const stepsDiag = Math.min(Math.abs(dx), Math.abs(dy));
-        const stepsStraight = Math.abs(Math.abs(dx) - Math.abs(dy));
-
-        const path = [a];
-
-        if (stepsDiag > 0 && stepsStraight > 0) {
-            // there will be a diagonal phase, then a straight phase
-            const turnX = x1 + sx * stepsDiag;
-            const turnY = y1 + sy * stepsDiag;
-            path.push(new Phaser.Math.Vector2(turnX, turnY));
-        }
-
-        path.push(new Phaser.Math.Vector2(x2, y2));
-        return path;
-    }
-
-    // Merge consecutive collinear 8-direction steps -> only turn points remain
-    compressTurns(points : Array<Phaser.Math.Vector2>) {
-        if (points.length <= 2) return points;
-        const out = [points[0]];
-        let prevDir : Phaser.Math.Vector2 | null = null;
-        for (let i = 1; i < points.length; i++) {
-            let vector0 = out[out.length - 1];
-            let vector1 = points[i];
-            const dx = Math.sign(vector1.x - vector0.x), dy = Math.sign(vector1.y - vector0.y);
-            const dir = new Phaser.Math.Vector2(dx,dy);
-            if (prevDir && dir.x == prevDir.x && dir.y == prevDir.y){
-                // same direction: extend last segment by replacing last point
-                out[out.length - 1] = vector1;
-            
-            }
-            else {
-            out.push(vector1);
-            prevDir = dir;
-            }
-        }
-        return out;
-    }
-
-    // Convert an entire path to the shortest 45° path between each pair, then compress
-    shortest45Path(originalPoints : Array<Phaser.Math.Vector2>) {
-        if (originalPoints.length <= 1) return originalPoints;
-        let stepped = [originalPoints[0]];
-        for (let i = 0; i < originalPoints.length - 1; i++) {
-            const seg = this.shortest45SegmentMinimal(originalPoints[i], originalPoints[i + 1]);
-            //let segmentSlice = seg.slice(1)
-            //starting j = 1 to skip first element
-            for(let j = 1; j< seg.length; j++){
-                stepped.push(seg[j])
-            } 
-            //stepped.push(seg.slice(1)); // avoid duplicating the junction point, the first point is the junction
-            
-        }
-        //let compressedPath = this.compressTurns(stepped);
-        //console.log("this compressed path is : " + compressedPath.length)
-        return stepped
-    }
 }
 
 

@@ -44,9 +44,9 @@ export default class Player extends Character {
         this.characterSpeed = 110;
         this.name = 'player'
 
-        spaceKey = scene.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        spaceKey = scene.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-        this.cursors = scene.input.keyboard?.createCursorKeys();
+        this.cursors = scene.input.keyboard!.createCursorKeys();
         this.wasd = scene.input.keyboard?.addKeys({
             up: Phaser.Input.Keyboard.KeyCodes.W,
             left: Phaser.Input.Keyboard.KeyCodes.A,
@@ -66,7 +66,7 @@ export default class Player extends Character {
     } 
 
     override sceneReady(){
-        Globals.eventsCenter.emit('character-needs-pursuer', this.name)
+        Globals.eventsCenter.emit('character-needs-chaser', this.name)
         Globals.eventsCenter.emit('character-needs-target', this.name)
     }
 
@@ -77,8 +77,8 @@ export default class Player extends Character {
 
     oneSecondCall(){
         /*
-        if(this.pursuerCharacter != null){
-            console.log("player being pursuerd by " + this.pursuerCharacter.name + ', ' + this.pursuerCharacter.characterColor)
+        if(this.chaseCharacter != null){
+            console.log("player being chased by " + this.chaseCharacter.name + ', ' + this.chaseCharacter.characterColor)
         }
         if(this.targetCharacter != null){
             console.log("player chasing " + this.targetCharacter.name + ", " + this.targetCharacter.characterColor)

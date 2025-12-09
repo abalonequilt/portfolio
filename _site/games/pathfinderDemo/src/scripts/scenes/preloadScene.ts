@@ -9,7 +9,7 @@ export default class PreloadScene extends Phaser.Scene {
     var progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
     progressBox.fillRect(240, 270, 320, 50);
-    this.load.image('logo', 'assets/img/assassins_white_outline.png');
+    this.load.image('logo', 'assassins_white_outline.png');
     this.load.image('phaser-logo', 'assets/img/phaser-logo.png')
 
     this.load.on('progress', function (value) {

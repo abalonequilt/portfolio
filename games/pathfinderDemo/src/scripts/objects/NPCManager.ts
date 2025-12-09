@@ -96,7 +96,7 @@ export default class NPCManager{
                 const angle = Phaser.Math.Angle.Between(keyVector.x, keyVector.y, gatheringCenter.x, gatheringCenter.y);
                 //get angle and use it to point at center point
                 let npcColor = this.pickRandomNPCColor();
-                let npc = new NPCOne(this.scene, keyVector.x, keyVector.y, npcColor + 'dude');
+                let npc = new NPCOne(this.scene, keyVector.x, keyVector.y, npcColor + 'dude', this.grid);
                 npc.setInteractive()
                 npc.on('pointerdown', () => {
                     npc.selectSprite(false);

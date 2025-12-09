@@ -35,9 +35,9 @@ Crafting recommendations: Now that Bodyguards are so powerful, it’s easy to ge
  
 Closure
 
-Closure won’t heal your emotional wounds, but neither will it prevent too many physical ones. When activated, this ability seals off every Pursuer Breaker in a large radius, preventing everyone (including yourself and allies) from using them as shortcuts. These Pursuer Breakers will remain closed for a significant period past their normal recharge times, locking down pursuers and pursueres for its duration.
+Closure won’t heal your emotional wounds, but neither will it prevent too many physical ones. When activated, this ability seals off every Chase Breaker in a large radius, preventing everyone (including yourself and allies) from using them as shortcuts. These Chase Breakers will remain closed for a significant period past their normal recharge times, locking down chasers and chasees for its duration.
 
-Commonly cited as the worst skill in Revelations, Closure hasn’t seen significant tweaks that would make it worth your while in Assassin’s Creed 3. Since relatively few encounters actually end in pursuers, the opportunity to cheat at them is fairly narrow. Even if you do lock down all the Pursuer Breakers, your enemies can still climb over/around them with minor penalty. Hell, some pursuers won’t even take place around Pursuer Breakers, further limiting what this ability can do for you and your score.
+Commonly cited as the worst skill in Revelations, Closure hasn’t seen significant tweaks that would make it worth your while in Assassin’s Creed 3. Since relatively few encounters actually end in chases, the opportunity to cheat at them is fairly narrow. Even if you do lock down all the Chase Breakers, your enemies can still climb over/around them with minor penalty. Hell, some chases won’t even take place around Chase Breakers, further limiting what this ability can do for you and your score.
 
 For these reasons, there really is no situation that calls for Closure. Leave it off your checklist of unlocks and pick something else.
 
@@ -48,7 +48,7 @@ Decoy
 
 When activated, Decoy causes one nearby NPC to manically flee from your location towards the selected locked character. If the NPC was not already a copy of your persona, it temporarily disguises as you as it makes its mad dash. Decoy is on a relatively low timer, making it a frequent (though increasingly more predictable) distraction. Decoy behavior can be crafted to different levels of subtlety, which may throw off enemies that have grown accustomed to the default Decoy AI.
 
-For best results, players should consider running off simultaneously with their Decoy’s launch. Since Decoys innately trigger the quick-lock indicator of your pursuer(s), this will force your killers to flip a coin on which copy to pursuer and murder. Note that Decoy is completely useless if your opponent has already spotted you, so try to activate it from a dense crowd or when you suspect your pursuer is about to round the corner.
+For best results, players should consider running off simultaneously with their Decoy’s launch. Since Decoys innately trigger the quick-lock indicator of your pursuer(s), this will force your killers to flip a coin on which copy to chase and murder. Note that Decoy is completely useless if your opponent has already spotted you, so try to activate it from a dense crowd or when you suspect your pursuer is about to round the corner.
 
 Unlike in Brotherhood, Decoy cannot be used offensively to identify targets. That said, its low cooldown means you can use it at almost any time, even if it’s just in the hopes that a crazed NPC will distract or unnerve other players, possibly enough to force a bad play.
 
@@ -92,7 +92,7 @@ Glimmer
 
 By activating Glimmer, your persona essentially disappears. For a few seconds, you become almost invisible, appearing as a faint, glimmering phantasm. The more slowly you move, the more invisible you remain, with opacity increasing alongside your speed. Once you’ve performed a kill or stun (or your timer runs out), you’ll be rendered opaque once more. If you ever needed to make an impossible escape or get the jump on an otherwise prepared opponent, try this.
 
-Glimmer is the perfect skill to employ in a variety of situations. You can win pursuers by rounding a corner, becoming transparent, and letting your pursuer either run by or take a stun to the back of the skull. On offense, you can more easily sneak up to an isolated opponent and build up your Approach meter, making for a better score. In team play, Glimmer will sometimes allow you to fool your foes into thinking they’ve got your group outnumbered.
+Glimmer is the perfect skill to employ in a variety of situations. You can win chases by rounding a corner, becoming transparent, and letting your pursuer either run by or take a stun to the back of the skull. On offense, you can more easily sneak up to an isolated opponent and build up your Approach meter, making for a better score. In team play, Glimmer will sometimes allow you to fool your foes into thinking they’ve got your group outnumbered.
 
 Similar to Decoy and Disguise, the more you use Glimmer, the less powerful it becomes. Your quarry will slowly start to expect it, looking around more carefully for hints of a nearly invisible predator. For this reason, don’t expect Glimmer to win you entire rounds. Mix it with other situational diversions for maximum rage-inducing effect.
 
@@ -105,7 +105,7 @@ While it sounds like something out of Monday Night Combat, the Money Bomb skill 
 
 The most obvious use of Money Bomb is to weed out otherwise inscrutable blenders from within a crowd. Money Bomb’s area of effect is larger than it appears, so there is usually little ambiguity once the dinero has been launched. And, speaking of lauching, Money Bomb can be aimed and thrown, letting you detect other players from a significant distance, just like Firecrackers. Unlike the latter ability though, your opponents won’t be blinded, so they’re free to run for their lives unhindered.
 
-On the note of sprinting to safety, Money Bomb does have a defensive use: dropping one while being pursuerd will cause AI characters to clutter up the area behind you, making it harder for pursuers to catch up. It’s been done in campy action movies before, so you know it works in a video game! Technically, you could also throw your cash at pursuer breakers or hallways right before a kill in the hopes of blocking off escape routes, but your results may vary.*
+On the note of sprinting to safety, Money Bomb does have a defensive use: dropping one while being chased will cause AI characters to clutter up the area behind you, making it harder for pursuers to catch up. It’s been done in campy action movies before, so you know it works in a video game! Technically, you could also throw your cash at chase breakers or hallways right before a kill in the hopes of blocking off escape routes, but your results may vary.*
 
  
 Morph
@@ -154,7 +154,7 @@ Crafting recommendations: While increasing range is tempting, slashing the abili
  
 Smoke Bomb
 
-The best skill in Assassin’s Creed multiplayer since Brotherhood, Smoke Bomb makes a return with minor tweaks. When used, the ability creates a puff of choking gas at your feet (or where targeted, if thrown) that prevents NPCs and players from moving, acting, or using abilities. As such, it can be used to disable attackers, keep targets in place, or create impassable routes to win pursuers.
+The best skill in Assassin’s Creed multiplayer since Brotherhood, Smoke Bomb makes a return with minor tweaks. When used, the ability creates a puff of choking gas at your feet (or where targeted, if thrown) that prevents NPCs and players from moving, acting, or using abilities. As such, it can be used to disable attackers, keep targets in place, or create impassable routes to win chases.
 
 Smoke Bomb’s reputation for being unbalanced is due to its omnipotence against so many strategies. It prevents retaliation of any kind on offense or defense, so an unprepared enemy is helpless to your blade/fist/abilities. It now acts faster as well, removing the infamous “lag” associated with the skill in the past, so users will get a more responsive feeling whenever they decide to hold an impromptu fire drill.
 
@@ -167,7 +167,7 @@ Teleport
 
 Whether you construe bamf to mean “badass motherfucker” or “the sound Nightcrawler makes,” both are apt descriptions of what Teleport does. With the push of a button and a beam-up animation reminiscent of Star Trek, your persona is instantly whisked to a location several dozen meters away (depending on your crafting choices). The exact destination is not precise, but you can aim for a general area with your reticule.
 
-Teleport has a long wind-up time and a long recharge, so its activation must always be carefully calculated. Your persona will give off an unmistakeably bright flash that will also render you immobile during the animation, so use pursuer breakers and walls to hide your interdimensional intent for as long as possible. Since Teleport is far from a favorite skill, it will catch many players off guard. If you’re able to lure two or more pursuers into a pursuer on the rooftops and can get a middling lead, a Teleport all but guarantees a Multiple Escape. Do keep in mind that Teleport can be interrupted by abilities like Throwing Knives, Smoke Bomb, and Wipe, as well as by your evisceration.
+Teleport has a long wind-up time and a long recharge, so its activation must always be carefully calculated. Your persona will give off an unmistakeably bright flash that will also render you immobile during the animation, so use chase breakers and walls to hide your interdimensional intent for as long as possible. Since Teleport is far from a favorite skill, it will catch many players off guard. If you’re able to lure two or more pursuers into a chase on the rooftops and can get a middling lead, a Teleport all but guarantees a Multiple Escape. Do keep in mind that Teleport can be interrupted by abilities like Throwing Knives, Smoke Bomb, and Wipe, as well as by your evisceration.
 
 While most players opt for Teleport in Artifact Assault or Domination, where specific territories are important, the skill serves a purpose in Wanted as well. By leading your pursuer towards the edge of the map, then Teleporting towards the middle, you are likely to put your killer’s killer (AKA your grandkiller) between the you and your pursuer. Not only will your former predator be confused, he’ll also probably be dead in a matter of seconds.
 
@@ -178,7 +178,7 @@ Throwing Knives
 
 Now a sidegraded ranged ability, Throwing Knives remains one of the most versatile and indispensable options in Assassin’s Creed multiplayer. When thrown, these piercing projectiles slow your target (killer or victim) and prevent her from all high-profile actions, including climbing. Throwing Knives also reduce your victim’s action range, meaning you can kill or stun her from maximum range without fear of a Contested Kill/Honorable Death.
 
-At once obvious, Throwing Knives have more uses than any other skill in the game. They can be used to end pursuers on either end by crippling your opponent. Throwing Knives can knock roofers off balance, sending them helplessly tumbling to terra firma. By slowing your prey, you can set up otherwise difficult acrobatic kills or ledge grabs, not to mention bide your time long enough for a greater Approach bonus. If chucked at the right time, these blades can interrupt abilities with activation times, such as Teleport and Pistol.
+At once obvious, Throwing Knives have more uses than any other skill in the game. They can be used to end chases on either end by crippling your opponent. Throwing Knives can knock roofers off balance, sending them helplessly tumbling to terra firma. By slowing your prey, you can set up otherwise difficult acrobatic kills or ledge grabs, not to mention bide your time long enough for a greater Approach bonus. If chucked at the right time, these blades can interrupt abilities with activation times, such as Teleport and Pistol.
 
 New to AC3, Throwing Knives produce the same audible warning all ranged weapons share, so make your shot count. Keep in mind that, unlike the Pistol, Throwing Knives are not hitscan (instant) when used, and can miss at long range due to shifting obstructions. This ability also received a longer cooldown than in the past, owing in no small part its incredible flexibility.
 

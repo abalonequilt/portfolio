@@ -1,11 +1,9 @@
-import Targeter from './interfaces/Targeter'
-import Decomposer from './interfaces/Decomposer'
-import Constraint from './interfaces/Constraint'
+import Targeter from './Targeter'
+import Decomposer from './Decomposer'
+import Constraint from './Constraint'
 import Goal from './Goal'
 import Kinematic from '../Kinematic'
-import Actuator from './interfaces/Actuator'
-import Wander from './behaviours/Wander'
-
+import Actuator from './Actuator'
 export default class SteeringPipeline{
     //Lists of components at each stage of the pipe
     targeters : Targeter[];
@@ -16,15 +14,14 @@ export default class SteeringPipeline{
     //holds the number of attempts the algorithm will make to fund an unconstrained route
     constraintSteps : number;
     //holds the deadliock steering behavior
-    deadlock : Wander
+    deadlock : number
     //holds the current kinematic data for the character
     kinematic : Kinematic;
 
     goal : Goal;
 
-    constructor(constraintSteps : number){
-        //this.constraintSteps = constraintSteps
-        this.constraintSteps = 5
+    constructor(){
+
     }
 
     //performs the pipeline algorithm and returns the required forces used to move the character
