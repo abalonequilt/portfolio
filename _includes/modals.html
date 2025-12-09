@@ -19,8 +19,10 @@
             {% if post.description %}
             <p>{{ post.description }}</p>
             {% endif %}
-            {% if post.link %}
-            <a href="{{ post.link }}" class="btn btn-default">View Project</a>
+            {% if post.project_path %}
+            <p>View Project</p>
+            <iframe src="{{ post.project_path }}" width="800" height="600" style="border:none;">
+            </iframe>
             {% endif %}
             <ul class="list-inline item-details">
               {% if post.client %}
