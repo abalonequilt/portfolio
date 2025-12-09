@@ -1,0 +1,13 @@
+---
+layout: default
+title: Project 3
+modal-id: 3
+date: 2025-12-08
+img: game.png
+alt: image-alt
+project-date: May 2016
+client: CMS.611 Final Project
+category: Game Development
+description: The description of the project
+project_path: /games/pathfinderDemo/src/index.html
+---

@@ -1,0 +1,14 @@
+---
+layout: default
+title: CMS.611 Final Project
+modal-id: 1
+date: 2025-12-08
+img: CMS611Final.png
+alt: image-alt
+project-date: May 2016
+category: Game Development
+description: This was a project developed for the class CMS.611
+
+---
+<!-- project_path: /games/pathfinderDemo/src/index.html -->
+<!--client: CMS.611 Final Project-->

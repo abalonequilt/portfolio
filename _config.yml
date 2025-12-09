@@ -62,6 +62,10 @@ credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a
 markdown: kramdown
 permalink: pretty
 
+# Include directories that start with underscore
+include:
+  - _assets
+
 #for posts
 defaults:
   - scope:
