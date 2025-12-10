@@ -21,14 +21,14 @@
             {% endif %}
             {% if post.youtube_link_id %}
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/{{ post.youtube_link_id}}" width="560" height="315" style="border:none;" allowfullscreen>
+              <iframe src="https://www.youtube.com/embed/{{ post.youtube_link_id}}" allowfullscreen>
               </iframe>
             </div>
             {% endif %}
             {% if post.project_path %}
             <div class="video-container">
               <p>View Project</p>
-              <iframe src="{{ post.project_path }}" width="800" height="600" style="border:none;" allowfullscreen>
+              <iframe src="{{ post.project_path }}"  allowfullscreen>
               </iframe>
             </div>
             {% endif %}
