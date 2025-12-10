@@ -1,13 +1,12 @@
 ---
 layout: default
-title: Project 3
-modal-id: 3
-date: 2025-12-08
+title: Game Prototype Using Phaser3
+modal-id: 4
+date: 2025-09-18
 img: game.png
 alt: image-alt
-project-date: May 2016
-client: CMS.611 Final Project
+project-date: September 2025
 category: Game Development
-description: The description of the project
 project_path: /games/pathfinderDemo/src/index.html
+description: Using the Phaser 3 web framework, I built a 2D game prototype that uses the A* pathfinding algorithm as a basic AI for enemies. I built this as a rudimentary prototype for a larger game that I am working on, and the player has a controller that allows them to traverse the level while a pursuer follows the player's avatar'. <br><br>Each enemy has a target and a pursuer, so all the characters follow each other in a chain. This prototype also has a circle graphic that fills up the closer a player is to a target and also points in the target's direction. The player can select targets, and 'kill' them for points if the correct target is eliminated. <br><br> Pressing tab also brings up a leaderboard, but enemy AI's are not currently programmed to attack or to collect points.
 ---

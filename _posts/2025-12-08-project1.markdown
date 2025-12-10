@@ -1,13 +1,13 @@
 ---
 layout: default
 title: CMS.611 Final Project
-modal-id: 1
+modal-id: 2
 date: 2025-12-08
-img: CMS611Final.png
+img: CMS611Final.gif
 alt: image-alt
 project-date: May 2016
 category: Game Development
-description: This was a project developed for the class CMS.611
+description: This was a final project developed for the class CMS.611, using the theme "Big and Small". I worked with six other people on this project. In order to fit the theme, we decided to create a game in which players would use their phones as controls while a bigger screen showed all the action. <br><br>This project involved a lot of networking using Unity3D's Photon API. Other than that the gameplay was that of a standard space shooter game, with progressive waves and a central spinning 'core' serving as a boss. 
 
 ---
 <!-- project_path: /games/pathfinderDemo/src/index.html -->

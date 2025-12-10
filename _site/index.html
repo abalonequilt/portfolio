@@ -100,7 +100,18 @@
     <div class="portfolio-flex-row">
       
       <div class="portfolio-flex-item portfolio-item">
-        <a href="#portfolioModal-3" class="portfolio-link" data-toggle="modal">
+        <a href="#portfolioModal-2" class="portfolio-link" data-toggle="modal">
+          <div class="caption">
+            <div class="caption-content">
+              <i class="fa fa-search-plus fa-3x"></i>
+            </div>
+          </div>
+          <img src="img/portfolio/CMS611Final.gif" class="img-responsive" alt="image-alt">
+        </a>
+      </div>
+      
+      <div class="portfolio-flex-item portfolio-item">
+        <a href="#portfolioModal-4" class="portfolio-link" data-toggle="modal">
           <div class="caption">
             <div class="caption-content">
               <i class="fa fa-search-plus fa-3x"></i>
@@ -111,13 +122,13 @@
       </div>
       
       <div class="portfolio-flex-item portfolio-item">
-        <a href="#portfolioModal-2" class="portfolio-link" data-toggle="modal">
+        <a href="#portfolioModal-3" class="portfolio-link" data-toggle="modal">
           <div class="caption">
             <div class="caption-content">
               <i class="fa fa-search-plus fa-3x"></i>
             </div>
           </div>
-          <img src="img/portfolio/game.png" class="img-responsive" alt="image-alt">
+          <img src="img/portfolio/livablecities.gif" class="img-responsive" alt="image-alt">
         </a>
       </div>
       
@@ -128,7 +139,7 @@
               <i class="fa fa-search-plus fa-3x"></i>
             </div>
           </div>
-          <img src="img/portfolio/CMS611Final.png" class="img-responsive" alt="image-alt">
+          <img src="img/portfolio/shakyshack.png" class="img-responsive" alt="image-alt">
         </a>
       </div>
       
@@ -283,7 +294,7 @@
 
   <!-- Portfolio Modals -->
 
-<div class="portfolio-modal modal fade" id="portfolioModal-3" tabindex="-1" role="dialog"
+<div class="portfolio-modal modal fade" id="portfolioModal-2" tabindex="-1" role="dialog"
   aria-hidden="true">
   <div class="modal-content">
     <div class="close-modal" data-dismiss="modal">
@@ -296,22 +307,16 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           <div class="modal-body">
-            <h2>Project 3</h2>
+            <h2>CMS.611 Final Project</h2>
             <hr class="star-primary">
-            <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="image-alt">
+            <img src="img/portfolio/CMS611Final.gif" class="img-responsive img-centered" alt="image-alt">
             
-            <p>The description of the project</p>
+            <p>This was a final project developed for the class CMS.611, using the theme "Big and Small". I worked with six other people on this project. In order to fit the theme, we decided to create a game in which players would use their phones as controls while a bigger screen showed all the action. <br><br>This project involved a lot of networking using Unity3D's Photon API. Other than that the gameplay was that of a standard space shooter game, with progressive waves and a central spinning 'core' serving as a boss.</p>
             
             
-            <p>View Project</p>
-            <iframe src="/games/pathfinderDemo/src/index.html" width="800" height="600" style="border:none;">
-            </iframe>
+            
             
             <ul class="list-inline item-details">
-              
-              <li>Client:
-                <strong>CMS.611 Final Project</strong>
-              </li>
               
               
               <li>Date:
@@ -333,7 +338,7 @@
   </div>
 </div>
 
-<div class="portfolio-modal modal fade" id="portfolioModal-2" tabindex="-1" role="dialog"
+<div class="portfolio-modal modal fade" id="portfolioModal-4" tabindex="-1" role="dialog"
   aria-hidden="true">
   <div class="modal-content">
     <div class="close-modal" data-dismiss="modal">
@@ -346,18 +351,66 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           <div class="modal-body">
-            <h2>Project 2</h2>
+            <h2>Game Prototype Using Phaser3</h2>
             <hr class="star-primary">
             <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="image-alt">
             
-            <p>The description of the project</p>
+            <p>Using the Phaser 3 web framework, I built a 2D game prototype that uses the A* pathfinding algorithm as a basic AI for enemies. I built this as a rudimentary prototype for a larger game that I am working on, and the player has a controller that allows them to traverse the level while a pursuer follows the player's avatar'. <br><br>Each enemy has a target and a pursuer, so all the characters follow each other in a chain. This prototype also has a circle graphic that fills up the closer a player is to a target and also points in the target's direction. The player can select targets, and 'kill' them for points if the correct target is eliminated. <br><br> Pressing tab also brings up a leaderboard, but enemy AI's are not currently programmed to attack or to collect points.</p>
+            
+            
+            
+            <p>View Project</p>
+            <iframe src="/games/pathfinderDemo/src/index.html" width="800" height="600" style="border:none;">
+            </iframe>
             
             
             <ul class="list-inline item-details">
               
-              <li>Client:
-                <strong>CMS.611 Final Project</strong>
+              
+              <li>Date:
+                <strong>September 2025</strong>
               </li>
+              
+              
+              <li>Service:
+                <strong>Game Development</strong>
+              </li>
+              
+            </ul>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>
+              Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal-3" tabindex="-1" role="dialog"
+  aria-hidden="true">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+            <h2>Livable Cities - MIT Game Lab</h2>
+            <hr class="star-primary">
+            <img src="img/portfolio/livablecities.gif" class="img-responsive img-centered" alt="image-alt">
+            
+            <p>I worked as a programmer on a team developing a game for the Samuel Tak Lee MIT Real Estate Entrepreneurship Lab. LivableCities (working title) creates a playful environment for students to explore the basics of real estate development. Players must manage capital and debt, and decide both what sorts of buildings to build and where.<br><br> Location of each building is key, as a building’s overall value is influenced by its neighbors – but the type of buildings player choose to build affects how quickly they can build up their capital reserves, and how pleased the citizens of their newly built city are with them.</p>
+            
+            
+            
+            
+            <a href="https://gamelab.mit.edu/games/livablecities/">Link to the Project Website</a>
+            
+            <ul class="list-inline item-details">
               
               
               <li>Date:
@@ -392,18 +445,23 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           <div class="modal-body">
-            <h2>CMS.611 Final Project</h2>
+            <h2>Shaky Shack - MIT Shenkar Workshop</h2>
             <hr class="star-primary">
-            <img src="img/portfolio/CMS611Final.png" class="img-responsive img-centered" alt="image-alt">
+            <img src="img/portfolio/shakyshack.png" class="img-responsive img-centered" alt="image-alt">
             
-            <p>This was a project developed for the class CMS.611</p>
+            <p>This was a game made in a ten week "purposeful games" workshop hosted by the MIT Game Lab and in partnership with the Shenkar College of Engineering. My team consisted of Michal Skurnik as a game and level designer, Micky Hoz as a programmer, Shiri Blumenthal as an artist, and myself as a programmer. <br><br> Shaky Shack is a building game set in a dumpyard, where people's unwanted belongings becomes someone else's treasure and home. The game shows the experiences of the dumplings, helpless creatures in the junkyard. During the game the player needs to build a shelter that will help the dumplings survive against multiple disasters.</p>
+            
+            
+            <iframe src="https://www.youtube.com/embed/z5DyQKPHUGQ" width="560" height="315" style="border:none;">
+            </iframe>
+            
             
             
             <ul class="list-inline item-details">
               
               
               <li>Date:
-                <strong>May 2016</strong>
+                <strong>July 2015</strong>
               </li>
               
               

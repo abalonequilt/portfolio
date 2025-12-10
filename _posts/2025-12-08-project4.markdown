@@ -1,0 +1,13 @@
+---
+layout: default
+title: Livable Cities - MIT Game Lab
+modal-id: 3
+date: 2016-05-05
+img: livablecities.gif
+alt: image-alt
+project-date: May 2016
+category: Game Development
+project_link: https://gamelab.mit.edu/games/livablecities/
+description: I worked as a programmer on a team developing a game for the Samuel Tak Lee MIT Real Estate Entrepreneurship Lab. LivableCities (working title) creates a playful environment for students to explore the basics of real estate development. Players must manage capital and debt, and decide both what sorts of buildings to build and where.<br><br> Location of each building is key, as a building’s overall value is influenced by its neighbors – but the type of buildings player choose to build affects how quickly they can build up their capital reserves, and how pleased the citizens of their newly built city are with them.
+
+---
