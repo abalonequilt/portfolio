@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Resolving Spatial Variation and Allowing Spectator Participation in Multiplayer VR
-modal-id: 2
-date: 2016-12-05
-img: CMS611Final.gif
+modal-id: 6
+date: 2016-05-05
+img: game.png
 alt: image-alt
 project-date: May 2016
 category: Game Development
