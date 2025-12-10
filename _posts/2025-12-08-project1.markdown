@@ -1,14 +1,14 @@
 ---
 layout: default
-title: CMS.611 Final Project
+title: Axis - CMS.611 Final Project
 modal-id: 2
-date: 2025-12-08
+date: 2016-05-05
 img: CMS611Final.gif
 alt: image-alt
 project-date: May 2016
 category: Game Development
 skills: Unity3D, C#
-description: This was a final project developed for the class CMS.611, using the theme "Big and Small". I worked with six other people on this project. In order to fit the theme, we decided to create a game in which players would use their phones as controls while a bigger screen showed all the action. <br><br>This project involved a lot of networking using Unity3D's Photon API. Other than that the gameplay was that of a standard space shooter game, with progressive waves and a central spinning 'core' that the players were attached serving as an anchor. 
+description: This was a final project developed for the MIT's CMS.611 class, using the theme "Big and Small". I worked with six other people on this project. In order to fit the theme, we decided to create a game in which players would use their phones as controls while a bigger screen showed all the action. <br><br>This project involved a lot of networking using Unity3D's Photon API. Other than that the gameplay was that of a standard space shooter game, with progressive waves and a central spinning 'core' that the players were attached serving as an anchor. 
 
 ---
 <!-- project_path: /games/pathfinderDemo/src/index.html -->
