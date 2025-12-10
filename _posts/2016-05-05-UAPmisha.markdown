@@ -1,0 +1,16 @@
+---
+layout: default
+title: Resolving Spatial Variation and Allowing Spectator Participation in Multiplayer VR
+modal-id: 2
+date: 2016-12-05
+img: CMS611Final.gif
+alt: image-alt
+project-date: May 2016
+category: Game Development
+skills: Unity3D, C#
+project_link: https://dl.acm.org/doi/10.1145/2984751.2984779
+description: As part of research credit assignment, I assisted MIT Media Lab research Misha Sra with her research into passive haptics and VR by creating an virtual reality experience using the Unity3D engine. <br><br> My role was to design a 3D virtual space integrating real world objects into the space that were bluetooth enabled and synchronizing those objects with the virtual space. For example, this space consisted of multiple cardboard boxes that could be knocked down with a bluetooth enabled Nerf gun. The Nerf gun transmitted it's rotation in space using a gyroscope as well as anytime its trigger was pulled. <br><br> The virtual environment I developed (a snow fort in a snowy landscape) would then enable a 3d modelled gun and use the bluetooth data to change its rotation as well as to fire the weapon. A snowball would then shoot out of the gun and hit a box in the snow fort, and send a bluetooth signal to knock down the appropriate cardboard box assembled in the 'real' world. <br><br> More information about this can be read at the research paper link below. 
+
+---
+<!-- project_path: /games/pathfinderDemo/src/index.html -->
+<!--client: CMS.611 Final Project-->
