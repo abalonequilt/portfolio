@@ -50,12 +50,35 @@ hr.star-primary {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0;
+    overflow: hidden;
 }
 
 .video-container iframe {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    border: 0;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+    .video-container {
+        margin: 15px 0;
+        padding-bottom: 75%; /* Slightly taller aspect ratio for mobile */
+    }
+    
+    .portfolio-modal .modal-content {
+        padding: 50px 0;
+    }
+    
+    .portfolio-modal .modal-content h2 {
+        font-size: 2em;
+    }
 }
 hr.star-light:after,
 hr.star-primary:after {
