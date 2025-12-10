@@ -37,13 +37,18 @@
                 <strong>{{ post.client }}</strong>
               </li>
               {% endif %}
+              {% if post.skills %}
+              <li>Skills:
+                <strong>{{ post.skills }}</strong>
+              </li>
+              {% endif %}
               {% if post.project-date %}
               <li>Date:
                 <strong>{{ post.project-date }}</strong>
               </li>
               {% endif %}
               {% if post.category %}
-              <li>Service:
+              <li>Category:
                 <strong>{{ post.category }}</strong>
               </li>
               {% endif %}
