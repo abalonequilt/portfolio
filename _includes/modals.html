@@ -20,13 +20,17 @@
             <p>{{ post.description }}</p>
             {% endif %}
             {% if post.youtube_link_id %}
-            <iframe src="https://www.youtube.com/embed/{{ post.youtube_link_id}}" width="560" height="315" style="border:none;">
-            </iframe>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/{{ post.youtube_link_id}}" width="560" height="315" style="border:none;" allowfullscreen>
+              </iframe>
+            </div>
             {% endif %}
             {% if post.project_path %}
-            <p>View Project</p>
-            <iframe src="{{ post.project_path }}" width="800" height="600" style="border:none;">
-            </iframe>
+            <div class="video-container">
+              <p>View Project</p>
+              <iframe src="{{ post.project_path }}" width="800" height="600" style="border:none;" allowfullscreen>
+              </iframe>
+            </div>
             {% endif %}
             {% if post.project_link %}
             <a href="{{post.project_link}}">Link to the Project Website</a>

@@ -7,3 +7,5 @@ Add post about work with Max Kleiman Weiner
 Add post about MISTI Mexico
 
 Potentially add more posts in the future
+
+Resize youtube and game window on mobile.
