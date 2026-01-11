@@ -3,7 +3,7 @@ layout: default
 title: iLab in a Box - MISTI Mexico
 modal-id: 5
 date: 2018-09-26
-img: game.png
+img: iLab.png
 alt: image-alt
 project-date: September 2018
 category: Game Development
