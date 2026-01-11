@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Livable Cities - MIT Game Lab
-modal-id: 3
+modal-id: 2
 date: 2016-05-05
 img: livablecities.gif
 alt: image-alt

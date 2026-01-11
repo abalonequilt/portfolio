@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Resolving Spatial Variation and Allowing Spectator Participation in Multiplayer VR
-modal-id: 6
+modal-id: 3
 date: 2016-05-05
 img: game.png
 alt: image-alt

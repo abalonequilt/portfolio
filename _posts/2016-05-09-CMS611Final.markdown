@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Axis - CMS.611 Final Project
-modal-id: 2
-date: 2016-05-05
+modal-id: 4
+date: 2016-05-09
 img: CMS611Final.gif
 alt: image-alt
 project-date: May 2016

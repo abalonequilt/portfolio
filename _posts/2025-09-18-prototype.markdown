@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Game Prototype Using Phaser3
-modal-id: 4
+modal-id: 6
 date: 2025-09-18
 img: game.png
 alt: image-alt
